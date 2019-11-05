@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fafafa;
+}
+
+body,
+input,
+button,
+textarea {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.principal {
+  background: #fff;
+}
+
+.principal img {
+  margin-left: 18%;
+}
+
+.header {
+  height: 40px;
+  background: #1264ad;
+}
+
+.container {
+  margin: 0 auto 0;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150px;
+}
+
+.content {
+  width: 100%;
+  background: #fff;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #1264ad;
+}
+
+.content form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content form label {
+  font-size: 15px;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.content form input {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 15px;
+  height: 45px;
+}
+
+.content button.btn {
+  border: 0;
+  border-radius: 3px;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(33, 145, 250);
+  color: rgb(255, 255, 255);
+}
+
+.content button.btn:hover {
+  background: rgb(27, 118, 204);
+}

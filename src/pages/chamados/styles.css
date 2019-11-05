@@ -1,0 +1,173 @@
+.container-chamados {
+  margin: 0 auto 0;
+  max-width: 1100px;
+  width: 100%;
+  border: 1px solid #1264ad;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.dn{
+  display: none;
+}
+
+.back-urgente {
+  background: rgb(238, 9, 9);
+}
+
+.back-normal {
+  background: rgb(5, 197, 53);
+}
+
+.back-concluido {
+  background: #006400;
+}
+
+.back-alta {
+  background: #f0951f;
+}
+.back-aberto {
+  background: rgb(217, 221, 0);
+}
+.back-cliente {
+  background: #a7dde4;
+}
+.back-base {
+  background: rgb(7, 73, 218);
+}
+
+.form-sit {
+  clear: both;
+}
+
+.form-sit div {
+  float: left;
+  margin: 5px;
+  margin-right: 20px;
+}
+
+.form-sit fieldset{
+  border: none;
+}
+
+ul #cabecalho {
+  float: left;
+  border: 1px solid rgb(218, 218, 218);
+  padding: 3px;
+  width: 25%;
+  color: #000;
+}
+
+.lista-chamados #cabe {
+  background: #ccc;
+  padding: 0;
+  border-radius: 2;
+  margin-top: 15px;
+}
+
+.lista-chamados li {
+  width: 100%;
+  list-style: none;
+  background: #fff;
+  padding: 10px;
+  display: table;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+ul.lista-chamados li,
+p,
+strong {
+  padding: 8px;
+  font-size: 15px;
+  color: #fff;
+}
+
+ul.lista-chamados li,
+strong {
+  color: #128dc1;
+}
+
+ul #nomePosto,
+#atendimento,
+#atendente,
+#data,
+#situacao,
+#prioridade {
+  float: left;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+ul #nomePosto {
+  width: 25%;
+  background: rgb(218, 218, 218);
+  font-size: 18px;
+}
+
+ul #atendimento {
+  width: 75%;
+  background: rgb(218, 218, 218);
+  font-size: 18px;
+}
+
+ul #data,
+#atendente,
+#situacao,
+#prioridade {
+  width: 25%;
+}
+
+ul #clear {
+  clear: both;
+}
+
+.container-chamados h1 {
+  margin: 10px;
+  color: #1264ad;
+  float: left;
+}
+
+.container-chamados button.btn {
+  border: 0;
+  border-radius: 3px;
+  height: 42px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(33, 145, 250);
+  color: rgb(255, 255, 255);
+  float: right;
+  margin: 10px;
+}
+
+.container-chamados button.btn:hover {
+  background: rgb(27, 118, 204);
+}
+
+.lista-chamados select {
+  font-size: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 37px;
+}
+
+.actions{
+  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.actions p {
+  color: rgb(15, 29, 233);
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actions p:hover {
+  color: rgb(12, 18, 100);
+}

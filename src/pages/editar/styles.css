@@ -1,0 +1,79 @@
+.container-incluir {
+  margin: 0 auto 0;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.container-incluir h1 {
+  margin: 20px;
+}
+
+.form-incluir {
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 5px;
+  border: 1px solid #1264ad;
+  margin-top: 10px;
+}
+
+.form-incluir form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-incluir form label {
+  font-size: 15px;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-incluir form input, textarea {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 45px;
+}
+
+
+.form-incluir form textarea{
+  height: max-content;
+}
+
+.form-incluir select {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 45px;
+}
+
+.form-incluir button.btn {
+  border: 0;
+  border-radius: 3px;
+  height: 42px;
+  width: 40%;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(33, 145, 250);
+  color: rgb(255, 255, 255);
+}
+
+.form-incluir button.btn:hover {
+  background: rgb(27, 118, 204);
+}
+
+.delete {
+  float: right;
+  width: min-content;
+  margin-top: -46px;
+  cursor: pointer;
+}
