@@ -10,7 +10,7 @@ export default function Chamados() {
   const [chamados, setChamados] = useState([]);
   const [chamadosInfo, setChamadosinfo] = useState({});
   const [page, setPage] = useState(1);
-  const [filtro, setFiltro] = useState([]);
+  //const [filtro, setFiltro] = useState([]);
 
   useEffect(() => {
     async function carregarChamados() {     
@@ -18,13 +18,13 @@ export default function Chamados() {
         params: {page}
       });
 
-      const { docs, ... chamadosInfo } = response.data;
+      const { docs, ...chamadosInfo } = response.data;
 
       setChamados(docs);
       setChamadosinfo(chamadosInfo); 
     }
     carregarChamados();
-  }, [page, filtro]);
+  }, [page]);
 
    function prevPage  () {
     if (page === 1) return;
@@ -49,31 +49,6 @@ export default function Chamados() {
         <Link to="new/">
           <button className="btn">Registrar novo Chamado</button>
         </Link>       
-          <form className="form-sit">
-            <fieldset>
-              <div>
-                <input type="checkbox"
-                 id="Aberto"
-                 name="sit"
-                 value="Aberto"
-                 defaultChecked
-                 onChange={e => setFiltro({filtro: e.target.value})}/>
-                <label htmlFor = "Aberto">Aberto</label>
-              </div>
-              <div>
-                <input type="checkbox" id="Concluido" name="sit" value="Concluido" defaultChecked/>
-                <label htmlFor = "Concluido"> Concluído </label>
-              </div>
-              <div>
-                <input type="checkbox" id="Aguardando Cliente" name="sit" value="Aguardando Cliente" defaultChecked/>
-                <label htmlFor = "Aguardando Cliente"> Aguardando Cliente </label>
-              </div>
-              <div>
-                <input type="checkbox" id="Aguardando Base" name="sit" value="Aguardando Base" defaultChecked/>
-                <label htmlFor = "Aguardando Base"> Aguardando Base </label>
-              </div>
-            </fieldset>
-          </form>       
         <ul className="lista-chamados">
           <li id="cabe">
             <p id="cabecalho">Usuário</p>
