@@ -6,16 +6,7 @@
 }
 
 .container-incluir h1 {
-  margin: 20px;
-}
-
-.form-incluir {
-  width: 100%;
-  background: #fff;
-  padding: 25px;
-  border-radius: 5px;
-  border: 1px solid #1264ad;
-  margin-top: 10px;
+  margin: 200px;
 }
 
 .form-incluir form {
@@ -30,7 +21,7 @@
   margin-bottom: 5px;
 }
 
-.form-incluir form input, textarea{
+.form-incluir form input, textarea, text{
   font-size: 16px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
@@ -56,7 +47,7 @@
   width: min-content;
 }
 
-.form-incluir button.btn {
+.form-incluir button.botao {
   border: 0;
   border-radius: 3px;
   height: 42px;
@@ -65,10 +56,18 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  background: rgb(33, 145, 250);
-  color: rgb(255, 255, 255);
+  background: #f8a130;
+  color: #fff;
 }
 
-.form-incluir button.btn:hover {
-  background: rgb(27, 118, 204);
+.form-incluir button.botao:hover {
+  background: #f5900c;
+}
+
+.sep{
+  display: block;
+}
+
+.pri{
+  float: left;
 }

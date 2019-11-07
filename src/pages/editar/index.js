@@ -97,6 +97,7 @@ export default function Editar({ history, match}) {
               <option value="Posto Cidelandia">Cidelandia</option>
               <option value="Posto Coimbra PA">Coimbra PA</option>
               <option value="Posto Coimbra TO">Coimbra TO</option>
+              <option value="Posto Confianca">Confiança</option>
               <option value="Posto Cristal">Cristal</option>
               <option value="Posto Esmeralda">Esmeralda</option>
               <option value="Posto Estreito">Estreito</option>

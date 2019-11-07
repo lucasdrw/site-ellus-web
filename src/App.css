@@ -24,11 +24,13 @@ textarea {
 }
 
 .principal img {
-  margin-left: 18%;
+  margin-left: 22%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .header {
-  height: 40px;
+  height: 42px;
   background: #1264ad;
 }
 

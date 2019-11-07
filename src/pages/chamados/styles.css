@@ -103,12 +103,18 @@ ul #nomePosto {
   width: 25%;
   background: rgb(218, 218, 218);
   font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul #atendimento {
   width: 75%;
   background: rgb(218, 218, 218);
   font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul #data,
@@ -116,6 +122,9 @@ ul #data,
 #situacao,
 #prioridade {
   width: 25%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul #clear {
@@ -136,14 +145,14 @@ ul #clear {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  background: rgb(33, 145, 250);
-  color: rgb(255, 255, 255);
+  background: #f8a130;
+  color: #fff;
   float: right;
   margin: 10px;
 }
 
 .container-chamados button.btn:hover {
-  background: rgb(27, 118, 204);
+  background: #f5900c;
 }
 
 .lista-chamados select {

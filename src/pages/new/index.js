@@ -5,6 +5,7 @@ import "./styles.css";
 export default function New({ history }) {
   const [nomePosto, setNomePosto] = useState("");
   const [atendimento, setAtendimento] = useState("");
+  const [detalhes, setDetalhes] = useState("");
   const [data, setData] = useState("");
   const [prioridade, setPrioridade] = useState("Normal");
   const [situacao, setSituacao] = useState("Aberto");
@@ -18,9 +19,10 @@ export default function New({ history }) {
       {
         nomePosto,
         atendimento,
+        detalhes,
         data,
         prioridade,
-        situacao,     
+        situacao,
       },
       { headers: { user_id } }
     );
@@ -37,7 +39,7 @@ export default function New({ history }) {
             <label htmlFor="nomePosto">Posto </label>
             <select
               id="nomePosto"
-              value={nomePosto}             
+              value={nomePosto}
               onChange={event => setNomePosto(event.target.value)}
             >
               <option value="" selected> Selecione o Posto de Combustível</option>
@@ -55,6 +57,7 @@ export default function New({ history }) {
               <option value="Posto Cidelandia">Cidelandia</option>
               <option value="Posto Coimbra PA">Coimbra PA</option>
               <option value="Posto Coimbra TO">Coimbra TO</option>
+              <option value="Posto Confianca">Confiança</option>
               <option value="Posto Cristal">Cristal</option>
               <option value="Posto Esmeralda">Esmeralda</option>
               <option value="Posto Estreito">Estreito</option>
@@ -95,11 +98,18 @@ export default function New({ history }) {
               <option value="Posto Xodo">Xodo</option>
             </select>
             <label htmlFor="atendimento">Atendimento</label>
-            <textarea
+            <input
+              type="text"
               id="atendimento"
               value={atendimento}
               onChange={event => setAtendimento(event.target.value)}
-              cols={40} rows={10}
+            />
+            <label htmlFor="detalhes">Detalhes</label>
+            <textarea
+              id="detalhes"
+              value={detalhes}
+              onChange={event => setDetalhes(event.target.value)}
+              cols={40} rows={5}
             />
             <label htmlFor="data">Data</label>
             <input
@@ -130,7 +140,8 @@ export default function New({ history }) {
               <option value="Aguardando resposta Base">Aguardando resposta Base</option>
             </select>
 
-            <button type="submit" className="btn"> Enviar </button>
+
+            <button type="submit" className="botao"> Enviar </button>
           </form>
         </div>
       </div>
