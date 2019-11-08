@@ -54,6 +54,7 @@ export default function New({ history }) {
               <option value="Posto Brito">Brito</option>
               <option value="Posto Buriti">Buriti</option>
               <option value="Posto Carajas">Carajás</option>
+              <option value="Posto Cidade">Cidade</option>
               <option value="Posto Cidelandia">Cidelandia</option>
               <option value="Posto Coimbra PA">Coimbra PA</option>
               <option value="Posto Coimbra TO">Coimbra TO</option>
