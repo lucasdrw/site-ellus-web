@@ -5,6 +5,10 @@ export default function Login({ history }) {
   const [user, setUser] = useState("");
   const [senha, setSenha] = useState("");
 
+  if(localStorage.getItem("user") != null){
+    history.push("/chamados")
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -22,6 +26,7 @@ export default function Login({ history }) {
 
   return (
     <>
+    <div className="header"/>
       <div className="container">
         <div className="content">
           <form onSubmit={handleSubmit}>

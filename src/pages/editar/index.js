@@ -72,6 +72,7 @@ export default function Editar({ history, match}) {
    };
   return (
     <>
+    <div className="header"/>
       <div className="container-incluir">
         <h1>Editar Atendimento</h1>
         <div className="form-incluir">

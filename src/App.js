@@ -10,9 +10,6 @@ function App() {
       <div className="principal">
         <img src={logo} alt="logo" height="60px" />
       </div>
-      <div className="header">
-
-      </div>
       <Routes />
     </div>
   );

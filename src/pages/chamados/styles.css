@@ -8,8 +8,16 @@
   margin-bottom: 50px;
 }
 
-.dn{
-  display: none;
+.btn-sair{
+  float: right;
+  margin: 5px;
+  margin-right: 10%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-sair:hover {
+  background: #0e497c;
 }
 
 .back-urgente {
@@ -41,14 +49,22 @@
   clear: both;
 }
 
-.form-sit div {
+.form-sit div  {
   float: left;
   margin: 5px;
   margin-right: 20px;
 }
 
-.form-sit fieldset{
-  border: none;
+.form-sit button{
+  border: 0;
+  border-radius: 3px;
+  height: 25px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #b8b6b3;
+  color: rgb(48, 48, 48);
 }
 
 ul #cabecalho {

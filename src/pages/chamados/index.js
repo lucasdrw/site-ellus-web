@@ -6,15 +6,15 @@ import "./styles.css";
 //pegando token do usuario para verificar se ta autenticado ou não
 export const estaAutenticado = () => localStorage.getItem("user") != null;
 
-export default function Chamados() {
+export default function Chamados({history}) {
   const [chamados, setChamados] = useState([]);
   const [chamadosInfo, setChamadosinfo] = useState({});
   const [page, setPage] = useState(1);
-  //const [filtro, setFiltro] = useState([]);
+  const [filtro, setFiltro] = useState([]);
 
   useEffect(() => {
     async function carregarChamados() {     
-      const response = await api.get('/chamados',{
+      const response = await api.get('/chamados', {
         params: {page}
       });
 
@@ -24,7 +24,7 @@ export default function Chamados() {
       setChamadosinfo(chamadosInfo); 
     }
     carregarChamados();
-  }, [page]);
+  }, [page, filtro]);
 
    function prevPage  () {
     if (page === 1) return;
@@ -42,13 +42,47 @@ export default function Chamados() {
    setPage(pageNumber)
   };
 
+  async function logout () {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+
   return (
     <>
+    <div className="header">
+    <p onClick={logout} className="btn-sair">Sair</p>
+    </div>
       <div className="container-chamados">
         <h1>Atendimentos</h1>
         <Link to="new/">
           <button className="btn">Registrar novo Chamado</button>
-        </Link>       
+        </Link> 
+
+        <form className="form-sit">           
+              <div>
+                <input type="checkbox"
+                 id="Aberto"
+                 name="sit"
+                 value="Aberto"
+                 defaultChecked
+                 />
+                <label htmlFor = "Aberto">Aberto</label>
+              </div>
+              <div>
+                <input type="checkbox" id="Concluido" name="sit" value="Concluido" defaultChecked/>
+                <label htmlFor = "Concluido"> Concluído </label>
+              </div>
+              <div>
+                <input type="checkbox" id="Aguardando Cliente" name="sit" value="Aguardando Cliente" defaultChecked/>
+                <label htmlFor = "Aguardando Cliente"> Aguardando Cliente </label>
+              </div>
+              <div>
+                <input type="checkbox" id="Aguardando Base" name="sit" value="Aguardando Base" defaultChecked/>
+                <label htmlFor = "Aguardando Base"> Aguardando Base </label>
+              </div>           
+            <button type="submit" value="Enviar">Filtrar</button>
+          </form>       
+
         <ul className="lista-chamados">
           <li id="cabe">
             <p id="cabecalho">Usuário</p>
@@ -83,7 +117,7 @@ export default function Chamados() {
         <div className="actions">
         <p onClick={prevPage}>Anterior</p>
         <p onClick={nextPage}>Próxima</p>
-        </div>
+        </div>     
       </div>
     </>
   );

@@ -32,6 +32,7 @@ export default function New({ history }) {
 
   return (
     <>
+    <div className="header"/>
       <div className="container-incluir">
         <h1>Registrar Atendimento</h1>
         <div className="form-incluir">
