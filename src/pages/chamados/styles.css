@@ -8,15 +8,20 @@
   margin-bottom: 50px;
 }
 
-.btn-sair{
-  float: right;
+.acoes{
+  margin: 0 auto 0;
+  max-width: 1100px;
+}
+
+#btn-acoes{
+  float: left;
   margin: 5px;
-  margin-right: 10%;
+  margin-right: 5px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.btn-sair:hover {
+#btn-acoes:hover {
   background: #0e497c;
 }
 

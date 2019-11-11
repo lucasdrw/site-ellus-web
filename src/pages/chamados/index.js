@@ -6,82 +6,85 @@ import "./styles.css";
 //pegando token do usuario para verificar se ta autenticado ou não
 export const estaAutenticado = () => localStorage.getItem("user") != null;
 
-export default function Chamados({history}) {
+export default function Chamados({ history }) {
   const [chamados, setChamados] = useState([]);
   const [chamadosInfo, setChamadosinfo] = useState({});
   const [page, setPage] = useState(1);
   const [filtro, setFiltro] = useState([]);
 
   useEffect(() => {
-    async function carregarChamados() {     
+    async function carregarChamados() {
       const response = await api.get('/chamados', {
-        params: {page}
+        params: { page }
       });
 
       const { docs, ...chamadosInfo } = response.data;
 
       setChamados(docs);
-      setChamadosinfo(chamadosInfo); 
+      setChamadosinfo(chamadosInfo);
     }
     carregarChamados();
   }, [page, filtro]);
 
-   function prevPage  () {
+  function prevPage() {
     if (page === 1) return;
 
     const pageNumber = page - 1;
-    
+
     setPage(pageNumber)
   };
 
-  function nextPage () {
-  if (page === chamadosInfo.pages) return;
+  function nextPage() {
+    if (page === chamadosInfo.pages) return;
 
-   const pageNumber = page + 1;
-   
-   setPage(pageNumber)
+    const pageNumber = page + 1;
+
+    setPage(pageNumber)
   };
 
-  async function logout () {
+  async function logout() {
     localStorage.removeItem("user");
     history.push("/");
   };
 
   return (
     <>
-    <div className="header">
-    <p onClick={logout} className="btn-sair">Sair</p>
-    </div>
+      <div className="header">
+        <div className="acoes">
+          <Link to="configuracoes/"><p id="btn-acoes">Configurações</p></Link>
+          <p onClick={logout} id="btn-acoes">Sair</p>
+        </div>
+      </div>
       <div className="container-chamados">
         <h1>Atendimentos</h1>
         <Link to="new/">
           <button className="btn">Registrar novo Chamado</button>
-        </Link> 
+        </Link>
 
-        <form className="form-sit">           
-              <div>
-                <input type="checkbox"
-                 id="Aberto"
-                 name="sit"
-                 value="Aberto"
-                 defaultChecked
-                 />
-                <label htmlFor = "Aberto">Aberto</label>
-              </div>
-              <div>
-                <input type="checkbox" id="Concluido" name="sit" value="Concluido" defaultChecked/>
-                <label htmlFor = "Concluido"> Concluído </label>
-              </div>
-              <div>
-                <input type="checkbox" id="Aguardando Cliente" name="sit" value="Aguardando Cliente" defaultChecked/>
-                <label htmlFor = "Aguardando Cliente"> Aguardando Cliente </label>
-              </div>
-              <div>
-                <input type="checkbox" id="Aguardando Base" name="sit" value="Aguardando Base" defaultChecked/>
-                <label htmlFor = "Aguardando Base"> Aguardando Base </label>
-              </div>           
-            <button type="submit" value="Enviar">Filtrar</button>
-          </form>       
+        <form className="form-sit">
+          <div>
+            <input type="checkbox"
+              id="Aberto"
+              name="sit"
+              value="Aberto"
+              defaultChecked
+            />
+            <label htmlFor="Aberto">Aberto</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Concluido" name="sit" value="Concluido" defaultChecked />
+            <label htmlFor="Concluido"> Concluído </label>
+          </div>
+          <div>
+            <input type="checkbox" id="Aguardando Cliente" name="sit" value="Aguardando Cliente" defaultChecked />
+            <label htmlFor="Aguardando Cliente"> Aguardando Cliente </label>
+          </div>
+          <div>
+            <input type="checkbox" id="Aguardando Base" name="sit" value="Aguardando Base" defaultChecked />
+            <label htmlFor="Aguardando Base"> Aguardando Base </label>
+          </div>
+          <button type="submit" value="Enviar">Filtrar</button>
+        </form>
 
         <ul className="lista-chamados">
           <li id="cabe">
@@ -105,7 +108,7 @@ export default function Chamados({history}) {
               > {chamado.data} </p>
               <p
                 id="situacao"
-                className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base" }
+                className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
               > {chamado.situacao} </p>
               <p
                 id="prioridade"
@@ -115,9 +118,9 @@ export default function Chamados({history}) {
           ))}
         </ul>
         <div className="actions">
-        <p onClick={prevPage}>Anterior</p>
-        <p onClick={nextPage}>Próxima</p>
-        </div>     
+          <p onClick={prevPage}>Anterior</p>
+          <p onClick={nextPage}>Próxima</p>
+        </div>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Chamados from "./pages/chamados";
 import New from "./pages/new";
 import Editar from "./pages/editar"
+import Configuracoes from "./pages/configuracoes"
 
 //verificando se o usuario esta autenticado
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -27,6 +28,7 @@ export default function Routes() {
         <PrivateRoute path="/cadastro" component={Cadastro} />
         <PrivateRoute path="/chamados" component={Chamados} />
         <PrivateRoute path="/new" component={New} />
+        <PrivateRoute path="/configuracoes" component={Configuracoes} />
         <PrivateRoute path="/editar/:chamado" component={Editar} />
         <Route path="*" component={() => <h1>Page not found</h1>} />
       </Switch>

@@ -1,0 +1,6 @@
+.container-config {
+    margin: 0 auto 0;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
