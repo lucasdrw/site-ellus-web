@@ -31,7 +31,7 @@
   margin-bottom: 5px;
 }
 
-.form-incluir form input, textarea {
+.form-incluir form input, textarea, text {
   font-size: 16px;
   margin-bottom: 10px;
   border: 1px solid #ddd;

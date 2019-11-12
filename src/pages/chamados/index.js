@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CheckboxGroup from 'react-checkbox-group'
+import CheckboxGroup from "react-checkbox-group";
+import {parseISO, format} from "date-fns";
+import pt from "date-fns/locale/pt"
 import api from "../../services/api";
 import "./styles.css";
 
@@ -9,6 +11,7 @@ export const estaAutenticado = () => localStorage.getItem("user") != null;
 
 export default function Chamados({ history }) {
   const [chamados, setChamados] = useState([]);
+  const [date, setDate] = useState([]);
   const [chamadosInfo, setChamadosinfo] = useState({});
   const [page, setPage] = useState(1);
   const [filtro, setFiltro] = useState(['Aberto', 'Aguardando resposta Base', 'Aguardando resposta Cliente']);
@@ -25,9 +28,24 @@ export default function Chamados({ history }) {
 
       setChamados(docs);
       setChamadosinfo(chamadosInfo);
+
+      const ndata = chamados.map(hour => {
+        const firstDate = parseISO(hour.data);
+        const formated = format(firstDate, "dd'/'MM'/'yyyy", {locale: pt})
+        const id = hour._id;
+    
+        return{
+          id,
+          data : formated
+        };
+    
+      })
+      
+      setDate(ndata)
+      
     }
     carregarChamados();
-  }, [page, filtro]);
+  }, [page, filtro, date]);
 
   function prevPage() {
     if (page === 1) return;
@@ -99,10 +117,21 @@ export default function Chamados({ history }) {
                 id="atendente"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
               > {chamado.user === "5da7c945f1af9436a41f76ec" ? "Lucas" : chamado.user === "5db327602f91c314a0429b9f" ? "Natanael" : chamado.user === "5db327e52f91c314a0429ba2" ? "Wanderson" : "Administrador"} </p>
+              {
+                // date.map(time => (
+                // <p
+                // key={time._id}
+                // id="data"
+                // className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
+                // >{time.data}</p>
+                // ))
+              }
               <p
-                id="data"
-                className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
-              > {chamado.data} </p>
+                
+                 id="data"
+                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
+                 >{chamado.data}</p>
+              
               <p
                 id="situacao"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}

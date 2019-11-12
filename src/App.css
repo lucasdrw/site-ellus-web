@@ -23,8 +23,13 @@ textarea {
   background: #fff;
 }
 
-.principal img {
-  margin-left: 22%;
+.logo{
+  margin: 0 auto 0;
+  max-width: 1100px;
+}
+
+.logo img {
+  margin-left: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
 }

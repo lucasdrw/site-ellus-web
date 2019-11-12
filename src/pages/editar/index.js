@@ -61,7 +61,10 @@ export default function Editar({ history, match}) {
     setChamados({ ...chamados, atendimento: e.target.value });
    };
 
-   
+   function handleInputChangeDetalhes(  e ){
+    setChamados({ ...chamados, detalhes: e.target.value });
+   };
+
   function handleInputChangePrioridade(  e ){
     setChamados({ ...chamados, prioridade: e.target.value });
    };
@@ -140,12 +143,20 @@ export default function Editar({ history, match}) {
               <option value="Posto Xodo">Xodo</option>
             </select>
             <label htmlFor="atendimento">Atendimento</label>
-            <textarea
+            <input
+              type="text"
               id="atendimento"
               required
               value={chamados.atendimento}
               onChange={handleInputChangeAtendimento}
               cols={40} rows={7}
+            />
+            <label htmlFor="detalhes">Detalhes</label>
+            <textarea
+              id="detalhes"
+              value={chamados.detalhes}
+              onChange={handleInputChangeDetalhes}
+              cols={40} rows={5}
             />
             <label htmlFor="data">Data</label>
             <input
