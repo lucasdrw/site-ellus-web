@@ -54,22 +54,10 @@
   clear: both;
 }
 
-.form-sit div  {
+.form-sit label  {
   float: left;
   margin: 5px;
   margin-right: 20px;
-}
-
-.form-sit button{
-  border: 0;
-  border-radius: 3px;
-  height: 25px;
-  padding: 0 20px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  background: #b8b6b3;
-  color: rgb(48, 48, 48);
 }
 
 ul #cabecalho {

@@ -30,7 +30,7 @@ export default function Routes() {
         <PrivateRoute path="/new" component={New} />
         <PrivateRoute path="/configuracoes" component={Configuracoes} />
         <PrivateRoute path="/editar/:chamado" component={Editar} />
-        <Route path="*" component={() => <h1>Page not found</h1>} />
+        <Route path="*" component={() => <h1>Página não encontrada</h1>} />
       </Switch>
     </BrowserRouter>
   );

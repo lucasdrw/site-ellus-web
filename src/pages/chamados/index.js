@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CheckboxGroup from 'react-checkbox-group'
 import api from "../../services/api";
 import "./styles.css";
 
@@ -10,12 +11,14 @@ export default function Chamados({ history }) {
   const [chamados, setChamados] = useState([]);
   const [chamadosInfo, setChamadosinfo] = useState({});
   const [page, setPage] = useState(1);
-  const [filtro, setFiltro] = useState([]);
+  const [filtro, setFiltro] = useState(['Aberto', 'Aguardando resposta Base', 'Aguardando resposta Cliente']);
+
+  const sit = [filtro[0], filtro[1], filtro[2], filtro[3]];
 
   useEffect(() => {
     async function carregarChamados() {
       const response = await api.get('/chamados', {
-        params: { page }
+        params: { page, sit }
       });
 
       const { docs, ...chamadosInfo } = response.data;
@@ -60,32 +63,26 @@ export default function Chamados({ history }) {
         <Link to="new/">
           <button className="btn">Registrar novo Chamado</button>
         </Link>
-
-        <form className="form-sit">
-          <div>
-            <input type="checkbox"
-              id="Aberto"
-              name="sit"
-              value="Aberto"
-              defaultChecked
-            />
-            <label htmlFor="Aberto">Aberto</label>
-          </div>
-          <div>
-            <input type="checkbox" id="Concluido" name="sit" value="Concluido" defaultChecked />
-            <label htmlFor="Concluido"> Concluído </label>
-          </div>
-          <div>
-            <input type="checkbox" id="Aguardando Cliente" name="sit" value="Aguardando Cliente" defaultChecked />
-            <label htmlFor="Aguardando Cliente"> Aguardando Cliente </label>
-          </div>
-          <div>
-            <input type="checkbox" id="Aguardando Base" name="sit" value="Aguardando Base" defaultChecked />
-            <label htmlFor="Aguardando Base"> Aguardando Base </label>
-          </div>
-          <button type="submit" value="Enviar">Filtrar</button>
-        </form>
-
+        <div className="form-sit">
+        <CheckboxGroup name="filtro" value={filtro} onChange={setFiltro}>
+          {(Checkbox) => (
+            <>          
+          <label>
+            <Checkbox value="Aberto"/>Aberto
+          </label>
+          <label>
+            <Checkbox value="Concluido"/>Concluido
+          </label>
+          <label>
+            <Checkbox value="Aguardando resposta Base"/>Aguardando resposta Base
+          </label>
+          <label>
+            <Checkbox value="Aguardando resposta Cliente"/>Aguardando resposta Cliente
+          </label>
+          </>
+          )}
+        </CheckboxGroup>
+        </div>
         <ul className="lista-chamados">
           <li id="cabe">
             <p id="cabecalho">Usuário</p>
