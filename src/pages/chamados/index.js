@@ -29,6 +29,8 @@ export default function Chamados({ history }) {
       setChamados(docs);
       setChamadosinfo(chamadosInfo);
 
+      
+
       const ndata = chamados.map(hour => {
         const firstDate = parseISO(hour.data);
         const formated = format(firstDate, "dd'/'MM'/'yyyy", {locale: pt})
@@ -42,7 +44,7 @@ export default function Chamados({ history }) {
       })
       
       setDate(ndata)
-      
+        
     }
     carregarChamados();
   }, [page, filtro, date]);
@@ -117,21 +119,19 @@ export default function Chamados({ history }) {
                 id="atendente"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
               > {chamado.user === "5da7c945f1af9436a41f76ec" ? "Lucas" : chamado.user === "5db327602f91c314a0429b9f" ? "Natanael" : chamado.user === "5db327e52f91c314a0429ba2" ? "Wanderson" : "Administrador"} </p>
-              {
+              {//
                 // date.map(time => (
                 // <p
-                // key={time._id}
+                // key={time.id === chamado._id ? time.id : chamado._id}
                 // id="data"
                 // className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
-                // >{time.data}</p>
+                // >{chamado.data}</p>
                 // ))
-              }
+              } 
               <p
-                
                  id="data"
                  className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
-                 >{chamado.data}</p>
-              
+                 >{chamado.data}</p>    
               <p
                 id="situacao"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
