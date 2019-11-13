@@ -29,22 +29,27 @@ export default function Chamados({ history }) {
       setChamados(docs);
       setChamadosinfo(chamadosInfo);
 
-      
-
-      const ndata = chamados.map(hour => {
-        const firstDate = parseISO(hour.data);
+      const ndata = chamados.map(chamado => {
+        const firstDate = parseISO(chamado.data);
         const formated = format(firstDate, "dd'/'MM'/'yyyy", {locale: pt})
-        const id = hour._id;
-    
+        const id = chamado._id;
+        const atendimento = chamado.atendimento;
+        const nomePosto = chamado.nomePosto;
+        const prioridade = chamado.prioridade;
+        const situacao = chamado.situacao;
+        const user = chamado.user;
+
         return{
           id,
-          data : formated
+          data : formated,
+          atendimento,
+          nomePosto,
+          prioridade,
+          situacao,
+          user
         };
-    
-      })
-      
-      setDate(ndata)
-        
+      })     
+      setDate(ndata)   
     }
     carregarChamados();
   }, [page, filtro, date]);
@@ -110,24 +115,15 @@ export default function Chamados({ history }) {
             <p id="cabecalho">Situação</p>
             <p id="cabecalho">Prioridade</p>
           </li>
-          {chamados.map(chamado => (
-            <Link to={`/editar/${chamado._id}`} key={chamado._id}> <li key={chamado._id}>
+          {date.map(chamado => (
+            <Link to={`/editar/${chamado.id}`} key={chamado.id}> <li key={chamado.id}>
               <strong id="nomePosto">{chamado.nomePosto} </strong>
               <strong id="atendimento">{chamado.atendimento}</strong>
-              <div id="clear"> </div>
+              <div id="clear"/>
               <p
                 id="atendente"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
               > {chamado.user === "5da7c945f1af9436a41f76ec" ? "Lucas" : chamado.user === "5db327602f91c314a0429b9f" ? "Natanael" : chamado.user === "5db327e52f91c314a0429ba2" ? "Wanderson" : "Administrador"} </p>
-              {//
-                // date.map(time => (
-                // <p
-                // key={time.id === chamado._id ? time.id : chamado._id}
-                // id="data"
-                // className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
-                // >{chamado.data}</p>
-                // ))
-              } 
               <p
                  id="data"
                  className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
