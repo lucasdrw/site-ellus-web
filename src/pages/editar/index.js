@@ -13,7 +13,6 @@ export default function Editar({ history, match}) {
       const response = await api.get(`/chamados/${id}`);
 
       setChamados(response.data);
-      
     }
     carregarChamado();
   }, []);

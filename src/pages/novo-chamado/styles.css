@@ -5,10 +5,6 @@
   flex-direction: column;
 }
 
-.container-incluir h1 {
-  margin: 200px;
-}
-
 .form-incluir form {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,56 @@
+.container-cadastro {
+    margin: 0 auto 0;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+  }
+
+  .content-config {
+    width: 100%;
+    background: #fff;
+    margin-top: 23px;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #1264ad;
+  }
+
+  .content-config form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-config form label {
+    font-size: 15px;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .content-config form input {
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 15px;
+    height: 45px;
+    width: min-content;
+  }
+  
+  .content-config button.btn {
+    border: 0;
+    border-radius: 3px;
+    width: min-content;
+    height: 42px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #2191fa;
+    color: #ffffff;
+  }
+  
+  .content-config button.btn:hover {
+    background: #1b76cc;
+  }

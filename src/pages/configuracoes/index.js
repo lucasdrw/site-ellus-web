@@ -8,13 +8,15 @@ import user from '../../assets/new-user.jpg';
 
 export default function Configuracoes() {
 
+    const id = localStorage.getItem("user");
+
     return (
         <>
             <div className="header" />
             <div className="container-incluir">
                 <h1>Configurações</h1>
                 <div className="form-incluir">
-                    <Link to="editar-perfil"><div className="conf-acoes">
+                    <Link to={`editar-perfil/${id}`}><div className="conf-acoes">
                         <img src={edit} alt="user" height="100px" />
                         <h3>Editar Usuário</h3>
                     </div></Link>
