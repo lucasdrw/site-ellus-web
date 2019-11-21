@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import api from "../../services/api";
 import "./styles.css";
 
-export default function New({ history }) {
+export default function NovoChamado({ history }) {
   const [nomePosto, setNomePosto] = useState("");
   const [atendimento, setAtendimento] = useState("");
   const [detalhes, setDetalhes] = useState("");
@@ -45,10 +45,11 @@ export default function New({ history }) {
             >
               <option value="" selected> Selecione o Posto de Combustível</option>
               <option value="Ellus Default">Ellus Default</option>
+              <option value="Posto 2 Irmãos">2 Irmãos</option>
               <option value="Posto Acaizal">Acaizal</option>
               <option value="Posto Antonio Marcos">Antonio Marcos</option>
               <option value="Posto Araguaia">Araguaia</option>
-              <option value="Posto Araguana">Araguana</option>
+              <option value="Posto Araguanã">Araguanã</option>
               <option value="Posto Arapoema">Arapoema</option>
               <option value="Posto Avenida">Avenida</option>
               <option value="Posto Barra do Ouro">Barra do Ouro</option>
@@ -56,7 +57,7 @@ export default function New({ history }) {
               <option value="Posto Buriti">Buriti</option>
               <option value="Posto Carajas">Carajás</option>
               <option value="Posto Cidade">Cidade</option>
-              <option value="Posto Cidelandia">Cidelandia</option>
+              <option value="Posto Cidelândia">Cidelândia</option>
               <option value="Posto Coimbra PA">Coimbra PA</option>
               <option value="Posto Coimbra TO">Coimbra TO</option>
               <option value="Posto Confianca">Confiança</option>

@@ -32,15 +32,10 @@ export default function Chamados({ history }) {
       const ndata = chamados.map(chamado => {
         const firstDate = parseISO(chamado.data);
         const formated = format(firstDate, "dd'/'MM'/'yyyy", {locale: pt})
-        const id = chamado._id;
-        const atendimento = chamado.atendimento;
-        const nomePosto = chamado.nomePosto;
-        const prioridade = chamado.prioridade;
-        const situacao = chamado.situacao;
-        const user = chamado.user;
+        const { _id, atendimento, nomePosto, prioridade, situacao, user } = chamado;
 
         return{
-          id,
+          _id,
           data : formated,
           atendimento,
           nomePosto,
@@ -79,13 +74,13 @@ export default function Chamados({ history }) {
     <>
       <div className="header">
         <div className="acoes">
-          <Link to="configuracoes/"><p id="btn-acoes">Configurações</p></Link>
+          <Link to="configuracoes"><p id="btn-acoes">Configurações</p></Link>
           <p onClick={logout} id="btn-acoes">Sair</p>
         </div>
       </div>
       <div className="container-chamados">
         <h1>Atendimentos</h1>
-        <Link to="new/">
+        <Link to="novo-chamado">
           <button className="btn">Registrar novo Chamado</button>
         </Link>
         <div className="form-sit">
@@ -116,7 +111,7 @@ export default function Chamados({ history }) {
             <p id="cabecalho">Prioridade</p>
           </li>
           {date.map(chamado => (
-            <Link to={`/editar/${chamado.id}`} key={chamado.id}> <li key={chamado.id}>
+            <Link to={`/editar/${chamado._id}`} key={chamado._id}> <li key={chamado._id}>
               <strong id="nomePosto">{chamado.nomePosto} </strong>
               <strong id="atendimento">{chamado.atendimento}</strong>
               <div id="clear"/>

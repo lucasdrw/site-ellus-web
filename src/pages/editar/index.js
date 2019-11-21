@@ -88,6 +88,7 @@ export default function Editar({ history, match}) {
               onChange={handleInputChangeNomePosto}
             >
               <option value="Ellus Default">Ellus Default</option>
+              <option value="Posto 2 Irmãos">2 Irmãos</option>
               <option value="Posto Acaizal">Acaizal</option>
               <option value="Posto Antonio Marcos">Antonio Marcos</option>
               <option value="Posto Araguaia">Araguaia</option>
