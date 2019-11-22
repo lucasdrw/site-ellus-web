@@ -5,3 +5,19 @@
     flex-direction: column;
     margin-top: 22px;
   }
+
+  .incluir form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+    width: max-content;
+  }
+
+  .incluir form label, input, button{
+    margin: 5px;
+  }
+
+  .incluir form input{
+    height: 42px;
+  }
