@@ -2,9 +2,9 @@ import React, { useEffect, useState }from "react";
 import api from "../../services/api";
 import "./styles.css";
 
-export default function Postos() {
+export default function Postos({history}) {
 
-  const [nomePosto, setNomePosto] = useState("");
+  const [posto, setPosto] = useState("");
   const [postos, setPostos] = useState([]);
 
   useEffect(() => {
@@ -15,16 +15,17 @@ export default function Postos() {
     }
 
     carregarPostos();
-  }, [])
+  }, [postos])
 
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     await api.post("/postos", {
-      nomePosto
+      posto
     });
 
+    //history.push("/configuracoes");
 
   }
   return (
@@ -39,8 +40,8 @@ export default function Postos() {
       <input
         type="text"
         id="posto"
-        value={nomePosto}
-        onChange={event => setNomePosto(event.target.value)}
+        value={posto}
+        onChange={event => setPosto(event.target.value)}
       />
       <button type="submit" className="btn">Adicionar</button>
       </form>
@@ -48,9 +49,7 @@ export default function Postos() {
       <div className="listar">
         <ul className="lista-posto">
           {postos.map(posto => (
-            <li key={posto._id}>
-              <p>{}</p>
-            </li>
+            <li key={posto._id}>{posto.posto}</li>
           ))}
         </ul>
       </div>

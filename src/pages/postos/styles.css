@@ -21,3 +21,18 @@
   .incluir form input{
     height: 42px;
   }
+
+  .listar{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lista-posto li{
+    list-style: none;
+    margin: -1px;
+    font-size: 18px;
+    padding: 3px;
+    border: 1px solid #1264ad;
+  }
+
+
