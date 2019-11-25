@@ -1,4 +1,5 @@
 import React, { useEffect, useState }from "react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 import "./styles.css";
 
@@ -49,7 +50,7 @@ export default function Postos({history}) {
       <div className="listar">
         <ul className="lista-posto">
           {postos.map(posto => (
-            <li key={posto._id}>{posto.posto}</li>
+            <Link to="configuracoes"><li key={posto._id}>{posto.posto}</li></Link>
           ))}
         </ul>
       </div>
