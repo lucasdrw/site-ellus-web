@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import api from "../../services/api";
 import "./styles.css";
 
-export default function Postos({history}) {
+import icon from '../../assets/delete.png';
+
+export default function Postos({history, match}) {
 
   const [posto, setPosto] = useState("");
   const [postos, setPostos] = useState([]);
@@ -25,10 +27,17 @@ export default function Postos({history}) {
     await api.post("/postos", {
       posto
     });
-
-    //history.push("/configuracoes");
-
   }
+
+  async function excluir (id) {
+    //if (window.confirm('Excluir Registro?')){
+    //id = match.params.chamado;
+    //await api.delete(`/chamados/${id}`); 
+    //history.push("/chamados");
+    //}
+    console.log(id)
+  };
+
   return (
     <>
     <div className="header" />
@@ -49,8 +58,11 @@ export default function Postos({history}) {
       </div>
       <div className="listar">
         <ul className="lista-posto">
-          {postos.map(posto => (
-            <Link to="configuracoes"><li key={posto._id}>{posto.posto}</li></Link>
+          {postos.map(posto => ( 
+              <li key={posto._id}>
+                {posto.posto}
+                <img onClick={excluir} src={icon} alt="delete" height="28px"/>
+              </li>  
           ))}
         </ul>
       </div>

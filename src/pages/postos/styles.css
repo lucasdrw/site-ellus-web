@@ -34,3 +34,14 @@
     padding: 3px;
     border: 1px solid #1264ad;
   }
+
+  .lista-posto li img{
+    float: right;
+    margin-right: 10px;
+    transition: transform .1s;
+  }
+
+  .lista-posto li img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
