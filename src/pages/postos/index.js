@@ -30,12 +30,9 @@ export default function Postos({history, match}) {
   }
 
   async function excluir (id) {
-    //if (window.confirm('Excluir Registro?')){
-    //id = match.params.chamado;
-    //await api.delete(`/chamados/${id}`); 
-    //history.push("/chamados");
-    //}
-    console.log(id)
+    if (window.confirm(`Excluir Posto?`)){
+    await api.delete(`/postos/${id}`); 
+    }
   };
 
   return (
@@ -61,7 +58,7 @@ export default function Postos({history, match}) {
           {postos.map(posto => ( 
               <li key={posto._id}>
                 {posto.posto}
-                <img onClick={excluir} src={icon} alt="delete" height="28px"/>
+                <img onClick={() => excluir(posto._id)} src={icon} alt="delete" height="28px"/>
               </li>  
           ))}
         </ul>
