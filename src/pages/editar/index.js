@@ -20,7 +20,9 @@ export default function Editar({ history, match}) {
     async function carregarPostos(){
       const response = await api.get('/postos');
 
-      setPostos(response.data);
+      const { docs } = response.data;
+
+      setPostos(docs);
     }
     carregarPostos();
   }, []);
@@ -90,6 +92,7 @@ export default function Editar({ history, match}) {
 
             <label htmlFor="nomePosto">Posto </label>
             <select id="nomePosto" value={chamados.nomePosto} required onChange={handleInputChangeNomePosto} >
+            <option value="" selected>{chamados.nomePosto}</option>
               {postos.map(posto => (
                 <option value={posto.posto}>{posto.posto}</option>
               ))

@@ -16,7 +16,9 @@ export default function NovoChamado({ history }) {
     async function carregarPostos(){
       const response = await api.get('/postos');
 
-      setPostos(response.data);
+      const { docs } = response.data;
+
+      setPostos(docs);
     }
     carregarPostos();
   }, [])

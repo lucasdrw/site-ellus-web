@@ -13,7 +13,9 @@ export default function Postos({history, match}) {
     async function carregarPostos(){
       const response = await api.get('/postos');
 
-      setPostos(response.data);
+      const { docs } = response.data;
+
+      setPostos(docs);
     }
 
     carregarPostos();
@@ -59,7 +61,8 @@ export default function Postos({history, match}) {
                 {posto.posto}
                 <img onClick={() => excluir(posto._id)} src={icon} alt="delete" height="28px"/>
               </li>  
-          ))}
+          ))
+        }
         </ul>
       </div>
     </div>
