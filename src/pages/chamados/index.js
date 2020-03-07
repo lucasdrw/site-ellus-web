@@ -118,7 +118,7 @@ export default function Chamados({ history }) {
               <p
                 id="atendente"
                 className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
-              > {chamado.user === "5da7c945f1af9436a41f76ec" ? "Lucas" : chamado.user === "5db327602f91c314a0429b9f" ? "Natanael" : chamado.user === "5db327e52f91c314a0429ba2" ? "Wanderson" : "Administrador"} </p>
+              > {chamado.user === "5da7c945f1af9436a41f76ec" ? "Lucas" : chamado.user === "5db327602f91c314a0429b9f" ? "Natanael" : chamado.user === "5db327e52f91c314a0429ba2" ? "Wanderson" : chamado.user === "5e6387128fe2c1001735b7d0" ? "luis" : "Admnistrador"} </p>
               <p
                  id="data"
                  className={chamado.situacao === "Concluido" ? "back-concluido" : chamado.situacao === "Aberto" ? "back-aberto" : chamado.situacao === "Aguardando resposta Cliente" ? "back-cliente" : "back-base"}
