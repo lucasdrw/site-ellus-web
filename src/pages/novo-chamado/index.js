@@ -61,13 +61,13 @@ export default function NovoChamado({ history }) {
             </select>
 
             <label htmlFor="atendimento">Atendimento</label>
-            <input type="text" id="atendimento" value={atendimento} onChange={event => setAtendimento(event.target.value)} />
+            <input type="text" id="atendimento" value={atendimento} required onChange={event => setAtendimento(event.target.value)} />
 
             <label htmlFor="detalhes">Detalhes</label>
             <textarea id="detalhes" value={detalhes} onChange={event => setDetalhes(event.target.value)} cols={40} rows={5} />
 
             <label htmlFor="data">Data</label>
-            <input id="data" type="date" value={data} onChange={event => setData(event.target.value)} />
+            <input id="data" type="date" value={data} required onChange={event => setData(event.target.value)} />
 
             <label htmlFor="prioridade">Prioridade</label>
             <select id="prioridade" value={prioridade} onChange={event => setPrioridade(event.target.value)} >
